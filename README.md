@@ -37,3 +37,15 @@ Response:
 ```
 {"tripId":1, "carColor":"black"}
 ```
+
+2. Post "/trips/:id/end": To end a trip
+
+Request:
+```
+{
+	"latitude": "12.00",
+	"longitude": "11.25"
+}
+```
+
+Response: No response. The fare and distance would be printed in the logs
