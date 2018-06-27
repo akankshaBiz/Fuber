@@ -21,9 +21,13 @@ app.post('/trips/:id/end', (req, res) => {
   const { id } = req.params;
   const { latitude, longitude } = req.body;
   const trip = carFleetManager.findTrip(id);
-  trip.end(latitude, longitude);
-  console.log("Total fare for the ride is: ", trip.fare);
-  console.log("Total distance for the ride is: ", trip.distance);
+  if (trip.active) {
+    trip.end(latitude, longitude);
+    console.log("Total fare for the ride is: ", trip.fare);
+    console.log("Total distance for the ride is: ", trip.distance);
+  } else {
+    console.log('the trip has already ended');
+  }
   res.end();
 });
 

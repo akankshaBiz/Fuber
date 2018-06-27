@@ -8,6 +8,7 @@ class Trip {
     this.endCoordinates = { x: 0, y: 0 };
     this.distance = 0;
     this.fare = 0;
+    this.active = true;
   }
 
   _updateStartCoordinates(coordX, coordY) {
@@ -60,6 +61,7 @@ class Trip {
     this.endTime = new Date();
     this.car.endTrip(userCoordX, userCoordY);
     this._updateTripFareAndDistance(userCoordX, userCoordY);
+    this.active = false;
   }
 }
 

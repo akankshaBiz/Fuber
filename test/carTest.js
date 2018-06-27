@@ -20,9 +20,49 @@ describe('Car', function() {
     });
   });
 
+  describe('#getPerMinutePrice()', function() {
+    it('should return 1', function() {
+      const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 5 };
+      const car = new Car({ x: 2, y: 3 }, priceObj, 'pink');
+      expect(car.getPerMinutePrice()).to.be(1);
+    });
+  });
+
+  describe('#getPerKilometerPrice()', function() {
+    it('should return 2', function() {
+      const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 5 };
+      const car = new Car({ x: 2, y: 3 }, priceObj, 'pink');
+      expect(car.getPerKilometerPrice()).to.be(2);
+    })
+  });
+
+  describe('#getExtraCost()', function() {
+    it('should return 5', function() {
+      const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 5 };
+      const car = new Car({ x: 2, y: 3 }, priceObj, 'pink');
+      expect(car.getExtraCost()).to.be(5);
+    })
+  });
+
+  describe('#endTrip()', function() {
+    const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 5 };
+    const car = new Car({ x: 2, y: 3 }, priceObj, 'pink');
+
+    it('updates the currentX and currentY with given value', function() {
+      car.endTrip(5, 5);
+      expect(car.currentX).to.be(5);
+      expect(car.currentY).to.be(5);
+    });
+
+    it('set the allocated flag to false', function() {
+      expect(car.allocated).to.not.be.ok();
+    });
+  });
+
+
   describe('#properties', function() {
     describe('when car has a color', function() {
-      const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 0 };
+      const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 5 };
       const car = new Car({ x: 2, y: 3 }, priceObj, 'pink');
 
       it('should return pink as color', function() {

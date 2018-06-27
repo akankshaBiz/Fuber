@@ -41,7 +41,7 @@ class CarFleetManager {
       const coordinates = generateInitialCoordinates();
       const priceDetails = getPriceDetails(color);
 
-      this.pool.push(new Car(coordinates, color, priceDetails));
+      this.pool.push(new Car(coordinates, priceDetails, color));
     }
   }
 
@@ -68,6 +68,10 @@ class CarFleetManager {
     this.trips.push(trip);
     this.tripNumber += 1;
     return trip;
+  }
+
+  findTrip(tripId) {
+    return this.trips[tripId];
   }
 
   bookCar(userCoordX, userCoordY, colorPreference) {
