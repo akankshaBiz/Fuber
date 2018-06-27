@@ -74,7 +74,7 @@ class CarFleetManager {
     return this.trips[tripId];
   }
 
-  bookCar(userCoordX, userCoordY, colorPreference) {
+  bookTrip(userCoordX, userCoordY, colorPreference) {
     if (userCoordX < -100 && userCoordX > 100) return null;
     if (userCoordY < -100 && userCoordY > 100) return null;
 

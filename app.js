@@ -11,7 +11,7 @@ const carFleetManager = new CarFleetManager();
 
 app.post('/book', (req, res) => {
   const { latitude, longitude, color } = req.body;
-  const trip = carFleetManager.bookCar(latitude, longitude, color);
+  const trip = carFleetManager.bookTrip(latitude, longitude, color);
   const data = { tripId: trip.id, carColor: trip.car.color };
 
   res.send(JSON.stringify(data));

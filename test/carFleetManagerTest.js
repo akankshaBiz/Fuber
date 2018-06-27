@@ -10,7 +10,7 @@ describe('CarFleetManager', function() {
     });
   });
 
-  describe('#bookCar()', function() {
+  describe('#bookTrip()', function() {
     const manager = new CarFleetManager();
 
     const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 0 };
@@ -22,12 +22,12 @@ describe('CarFleetManager', function() {
     manager.pool = [car1, car2];
 
     it('should return the nearest car', function() {
-      const trip = manager.bookCar(1, 1, 'black');
+      const trip = manager.bookTrip(1, 1, 'black');
       expect(trip.car).to.be(car1);
     });
 
     it('should return the pink car if it has been asked for', function() {
-      const trip = manager.bookCar(1, 1, 'pink');
+      const trip = manager.bookTrip(1, 1, 'pink');
       expect(trip.car).to.be(car2);
     });
   });
