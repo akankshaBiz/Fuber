@@ -19,6 +19,14 @@ const findDistance = (xIndex1, yIndex1, xIndex2, yIndex2) => {
   return ((xDiff + yDiff) ** 0.5);
 };
 
+const getPriceDetails = (color) => {
+  const priceObj = { perMinute: 1, perKilometer: 2, extraCost: 0 };
+  if (color === 'pink') {
+    priceObj.extraCost = 5;
+  }
+  return priceObj;
+};
+
 class CarFleetManager {
   constructor() {
     this.pool = [];
@@ -31,8 +39,9 @@ class CarFleetManager {
     for (let i = 0; i < NUMBER_OF_CARS; i += 1) {
       const color = getColor();
       const coordinates = generateInitialCoordinates();
+      const priceDetails = getPriceDetails(color);
 
-      this.pool.push(new Car(coordinates, color));
+      this.pool.push(new Car(coordinates, color, priceDetails));
     }
   }
 
