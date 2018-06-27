@@ -1,5 +1,5 @@
 class Car {
-  constructor(color, coordinates) {
+  constructor(coordinates, color = 'black') {
     this.color = color;
     this.currentX = coordinates.x;
     this.currentY = coordinates.y;
@@ -12,6 +12,19 @@ class Car {
 
   deAllocate() {
     this.allocated = false;
+  }
+
+  setCoordinates(coordX, coordY) {
+    this.currentX = coordX;
+    this.currentY = coordY;
+  }
+
+  getCoordinates() {
+    return { coordX: this.currentX, coordY: this.currentY };
+  }
+
+  isAvailable(color) {
+    return (this.color === color && !this.allocated);
   }
 }
 
